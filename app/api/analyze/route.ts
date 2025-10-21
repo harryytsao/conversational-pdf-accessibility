@@ -93,7 +93,7 @@ export async function POST(req: Request) {
     let pages: PageContent[] = [];
     let totalTextLength = 0;
     let isScanned = false;
-    let avgFontSize = 12.0;
+    let body_font_size = 12.0;
     let maxFontSize = 14.0;
 
     if (extraction) {
@@ -104,13 +104,20 @@ export async function POST(req: Request) {
       isScanned = totalTextLength < 100 || totalTextLength / page_count < 20;
 
       // Analyze font sizes for heading detection
-      const allFontSizes = pages.flatMap((p) => p.items.map((i) => i.fontSize));
-      if (allFontSizes.length > 0) {
-        avgFontSize =
-          Math.round(
-            (allFontSizes.reduce((a, b) => a + b, 0) / allFontSizes.length) * 10
-          ) / 10;
-        maxFontSize = Math.round(Math.max(...allFontSizes) * 10) / 10;
+      //Determine body font and max font. We can find body font by looking at the font that takes up the most text area
+      const font_stats = new Map<number, number>(); // fontSize -> total text length
+      for (const page of pages) {
+        for (const item of page.items) {
+          const size = Math.round(item.fontSize * 10) / 10;
+          const len = item.text?.length || 0;
+          if (len > 0 && size > 0) font_stats.set(size, (font_stats.get(size) || 0) + len);
+        }
+      }
+      const all_font_sizes = Array.from(font_stats.keys());
+      if (all_font_sizes.length > 0) {
+        //find the font size responsible for the most text
+        body_font_size = all_font_sizes.reduce((a, b) => (font_stats.get(a) ?? 0) > (font_stats.get(b) ?? 0) ? a : b);
+        maxFontSize = Math.round(Math.max(...all_font_sizes) * 10) / 10;
       }
     } else {
       // Fallback if extraction fails
@@ -130,7 +137,7 @@ export async function POST(req: Request) {
       author,
       isScanned,
       textLength: totalTextLength,
-      avgFontSize,
+      body_font_size,
       maxFontSize,
       pages: pages.map((p) => ({
         pageNumber: p.pageNumber,

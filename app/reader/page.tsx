@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { it } from "node:test";
 
 interface TextItem {
   text: string;
@@ -26,7 +27,7 @@ interface DocumentData {
   page_count: number;
   isScanned: boolean;
   textLength: number;
-  avgFontSize: number;
+  body_font_size: number;
   maxFontSize: number;
   pages: PageData[];
 }
@@ -37,6 +38,34 @@ interface StructuredContent {
   level?: number; // for headings: 1, 2, 3
   fontSize?: number;
   pageNumber: number;
+}
+
+//Function to create a scoring system to determine heading levels
+function determineHeadingLevel(item: TextItem, body_font_threshold: number, page_width = 600) {
+  const ratio = item.fontSize / body_font_threshold;
+  const text = item.text.trim();
+  let score = 0;
+  // Font size contribution
+  if (ratio >= 1.8) score += 4;
+  else if (ratio >= 1.4) score += 3;
+  else if (ratio >= 1.2) score += 2;
+  else if (ratio >= 1.1) score += 1;
+  //style contribution
+  const font = item.fontName.toLowerCase();
+  if (font.includes("bold") || font.includes("black") || font.includes("heavy")) score += 1;
+  if (text === text.toUpperCase() && text.length > 3) score += 1;
+  //Layout contribution
+  const text_center = item.x + (text.length * item.fontSize * 0.5);
+  const page_center = page_width / 2;
+  if (Math.abs(text_center - page_center) < page_width * 0.1) score += 1;
+  //text length contribution
+  if (text.length < 60) score += 1;
+  if (text.length > 120) return 0;
+  //Determine level based on score
+  if (score >= 7) return 1;
+  else if (score >= 5) return 2;
+  else if (score >= 3) return 3;
+  return 0; // not a heading
 }
 
 export default function ReaderPage() {
@@ -94,9 +123,6 @@ export default function ReaderPage() {
       return content;
     }
 
-    const headingThreshold = data.avgFontSize + 2;
-    const subheadingThreshold = data.avgFontSize + 1;
-
     data.pages.forEach((page) => {
       // Sort items by reading order (top to bottom, left to right)
       const sortedItems = [...page.items].sort((a, b) => {
@@ -115,7 +141,7 @@ export default function ReaderPage() {
         if (!text) return;
 
         // Check if this item is a heading
-        if (item.fontSize >= headingThreshold && text.length > 3) {
+        if (item.fontSize >= data.body_font_size + 1 && text.length > 3) {
           // Save previous paragraph if exists
           if (currentText) {
             content.push({
@@ -127,11 +153,7 @@ export default function ReaderPage() {
           }
 
           // Determine heading level
-          let level = 1;
-          if (item.fontSize >= data.maxFontSize - 1) level = 1;
-          else if (item.fontSize >= headingThreshold + 2) level = 2;
-          else level = 3;
-
+          const level = determineHeadingLevel(item, data.body_font_size);
           content.push({
             type: "heading",
             text: text,

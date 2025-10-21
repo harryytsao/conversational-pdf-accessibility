@@ -121,7 +121,7 @@ export default function UploadPage() {
               {!meta_data.isScanned && (
                 <>
                   <p className="text-sm">
-                    <strong>Font Sizes:</strong> Average {meta_data.avgFontSize}
+                    <strong>Font Sizes:</strong> Body font {meta_data.body_font_size}
                     , Max {meta_data.maxFontSize} (for heading detection)
                   </p>
                   <p className="text-sm">
