@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
+
 import Link from "next/link";
 import { it } from "node:test";
 
@@ -45,11 +46,13 @@ function determineHeadingLevel(item: TextItem, body_font_threshold: number, page
   const ratio = item.fontSize / body_font_threshold;
   const text = item.text.trim();
   let score = 0;
-  // Font size contribution
-  if (ratio >= 1.8) score += 4;
-  else if (ratio >= 1.4) score += 3;
-  else if (ratio >= 1.2) score += 2;
-  else if (ratio >= 1.1) score += 1;
+  let level = 0;
+  // Font size contribution is the main driver of level
+  if (ratio >= 1.8) level = 1;
+  else if (ratio >= 1.4) level = 2;
+  else if (ratio >= 1.1 ) level = 3;
+  else level = 0;
+  //Use score to refine level
   //style contribution
   const font = item.fontName.toLowerCase();
   if (font.includes("bold") || font.includes("black") || font.includes("heavy")) score += 1;
@@ -60,12 +63,10 @@ function determineHeadingLevel(item: TextItem, body_font_threshold: number, page
   if (Math.abs(text_center - page_center) < page_width * 0.1) score += 1;
   //text length contribution
   if (text.length < 60) score += 1;
+  if (score >= 2 && level == 0) level = 3;
   if (text.length > 120) return 0;
   //Determine level based on score
-  if (score >= 7) return 1;
-  else if (score >= 5) return 2;
-  else if (score >= 3) return 3;
-  return 0; // not a heading
+  return level;
 }
 
 export default function ReaderPage() {
@@ -79,6 +80,7 @@ export default function ReaderPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [show_outline, setShowOutline] = useState(false);
 
   useEffect(() => {
     if (!fileName) {
@@ -141,7 +143,7 @@ export default function ReaderPage() {
         if (!text) return;
 
         // Check if this item is a heading
-        if (item.fontSize >= data.body_font_size + 1 && text.length > 3) {
+        if (item.fontSize > data.body_font_size && text.length > 3) {
           // Save previous paragraph if exists
           if (currentText) {
             content.push({
@@ -153,7 +155,7 @@ export default function ReaderPage() {
           }
 
           // Determine heading level
-          const level = determineHeadingLevel(item, data.body_font_size);
+          const level = determineHeadingLevel(item, data.body_font_size, data.maxFontSize);
           content.push({
             type: "heading",
             text: text,
@@ -247,7 +249,7 @@ export default function ReaderPage() {
                 <p className="text-sm text-black">by {documentData.author}</p>
               </div>
             </div>
-
+<button onClick={() => setShowOutline(!show_outline)} className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black" aria-expanded={show_outline} aria-controls="outline-panel">{show_outline ? "Hide Outline" : "Show Outline"}</button>
             <div className="flex items-center gap-4">
               {/* Page navigation */}
               <div className="flex items-center gap-2">
@@ -311,7 +313,8 @@ export default function ReaderPage() {
       <main className="max-w-5xl mx-auto px-6 py-8">
         <div className="grid grid-cols-12 gap-6">
           {/* Navigation Sidebar */}
-          <aside className="col-span-3">
+          {show_outline && (
+          <aside id="outline-panel" className="col-span-3">
             <div className="bg-white rounded-lg border p-4 sticky top-24">
               <h2 className="font-semibold mb-3 text-sm text-black">
                 Document Outline
@@ -322,7 +325,10 @@ export default function ReaderPage() {
                   .map((item, index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentPage(item.pageNumber)}
+                      onClick={() => {
+                        setCurrentPage(item.pageNumber);
+                        setShowOutline(!show_outline);
+                      }}
                       className={`block w-full text-left px-2 py-1 rounded text-sm hover:bg-gray-100 ${
                         item.level === 1
                           ? "font-bold"
@@ -341,13 +347,13 @@ export default function ReaderPage() {
                   ))}
               </nav>
             </div>
-          </aside>
+          </aside>)}
 
           {/* Main Reading Canvas */}
-          <article className="col-span-9">
+          <article className="col-span-9" role="document">
             <div
               className="bg-white rounded-lg border shadow-sm p-8 min-h-[600px]"
-              role="article"
+              role="region"
               aria-label={`Page ${currentPage} content`}
             >
               {documentData.isScanned ? (
@@ -428,6 +434,14 @@ export default function ReaderPage() {
               <span className="text-sm text-black">
                 Page {currentPage} of {totalPages}
               </span>
+              <button onClick={() => {
+                const input = prompt(`Enter a page number from 1 to ${totalPages}.`);
+                if (input) {
+                  const page_num = parseInt(input, 10);
+                  if (!isNaN(page_num) && page_num >= 1 && page_num <= totalPages) setCurrentPage(page_num);
+                  else alert("Invalid page number.");
+                }
+              }}>Enter Page Number</button>
               <button
                 onClick={() =>
                   setCurrentPage(Math.min(totalPages, currentPage + 1))
