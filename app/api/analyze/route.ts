@@ -68,27 +68,27 @@ export async function POST(req: Request) {
   try {
     console.log("📄 Analyze API called");
     const { file_name } = await req.json();
-    console.log("📁 File name:", file_name);
+    console.log("File name:", file_name);
 
     const file_path = path.join(process.cwd(), "uploads", file_name);
     if (!fs.existsSync(file_path))
       return NextResponse.json({ error: "File not found" }, { status: 404 });
 
     const buffer = fs.readFileSync(file_path);
-    console.log("✅ File read, size:", buffer.length, "bytes");
+    console.log("File read, size:", buffer.length, "bytes");
 
     // Extract metadata using pdf-lib
-    console.log("🔍 Extracting metadata...");
+    console.log("Extracting metadata...");
     const pdf_doc = await PDFDocument.load(buffer);
     const page_count = pdf_doc.getPageCount();
     const title = pdf_doc.getTitle() || "Unknown";
     const author = pdf_doc.getAuthor() || "Unknown";
-    console.log(`📊 Metadata: ${page_count} pages, title: "${title}"`);
+    console.log(`Metadata: ${page_count} pages, title: "${title}"`);
 
     // Extract text using external script (bypasses Next.js bundling)
-    console.log("🔤 Starting text extraction...");
+    console.log("Starting text extraction...");
     const extraction = await extractTextWithPdfjs(file_path);
-    console.log("✅ Text extraction complete");
+    console.log("Text extraction complete");
 
     let pages: PageContent[] = [];
     let totalTextLength = 0;
@@ -110,13 +110,16 @@ export async function POST(req: Request) {
         for (const item of page.items) {
           const size = Math.round(item.fontSize * 10) / 10;
           const len = item.text?.length || 0;
-          if (len > 0 && size > 0) font_stats.set(size, (font_stats.get(size) || 0) + len);
+          if (len > 0 && size > 0)
+            font_stats.set(size, (font_stats.get(size) || 0) + len);
         }
       }
       const all_font_sizes = Array.from(font_stats.keys());
       if (all_font_sizes.length > 0) {
         //find the font size responsible for the most text
-        body_font_size = all_font_sizes.reduce((a, b) => (font_stats.get(a) ?? 0) > (font_stats.get(b) ?? 0) ? a : b);
+        body_font_size = all_font_sizes.reduce((a, b) =>
+          (font_stats.get(a) ?? 0) > (font_stats.get(b) ?? 0) ? a : b
+        );
         maxFontSize = Math.round(Math.max(...all_font_sizes) * 10) / 10;
       }
     } else {

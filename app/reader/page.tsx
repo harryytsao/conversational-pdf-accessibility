@@ -42,7 +42,11 @@ interface StructuredContent {
 }
 
 //Function to create a scoring system to determine heading levels
-function determineHeadingLevel(item: TextItem, body_font_threshold: number, page_width = 600) {
+function determineHeadingLevel(
+  item: TextItem,
+  body_font_threshold: number,
+  page_width = 600
+) {
   const ratio = item.fontSize / body_font_threshold;
   const text = item.text.trim();
   let score = 0;
@@ -50,15 +54,16 @@ function determineHeadingLevel(item: TextItem, body_font_threshold: number, page
   // Font size contribution is the main driver of level
   if (ratio >= 1.8) level = 1;
   else if (ratio >= 1.4) level = 2;
-  else if (ratio >= 1.1 ) level = 3;
+  else if (ratio >= 1.1) level = 3;
   else level = 0;
   //Use score to refine level
   //style contribution
   const font = item.fontName.toLowerCase();
-  if (font.includes("bold") || font.includes("black") || font.includes("heavy")) score += 1;
+  if (font.includes("bold") || font.includes("black") || font.includes("heavy"))
+    score += 1;
   if (text === text.toUpperCase() && text.length > 3) score += 1;
   //Layout contribution
-  const text_center = item.x + (text.length * item.fontSize * 0.5);
+  const text_center = item.x + text.length * item.fontSize * 0.5;
   const page_center = page_width / 2;
   if (Math.abs(text_center - page_center) < page_width * 0.1) score += 1;
   //text length contribution
@@ -155,7 +160,11 @@ export default function ReaderPage() {
           }
 
           // Determine heading level
-          const level = determineHeadingLevel(item, data.body_font_size, data.maxFontSize);
+          const level = determineHeadingLevel(
+            item,
+            data.body_font_size,
+            data.maxFontSize
+          );
           content.push({
             type: "heading",
             text: text,
@@ -249,7 +258,14 @@ export default function ReaderPage() {
                 <p className="text-sm text-black">by {documentData.author}</p>
               </div>
             </div>
-<button onClick={() => setShowOutline(!show_outline)} className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black" aria-expanded={show_outline} aria-controls="outline-panel">{show_outline ? "Hide Outline" : "Show Outline"}</button>
+            <button
+              onClick={() => setShowOutline(!show_outline)}
+              className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black"
+              aria-expanded={show_outline}
+              aria-controls="outline-panel"
+            >
+              {show_outline ? "Hide Outline" : "Show Outline"}
+            </button>
             <div className="flex items-center gap-4">
               {/* Page navigation */}
               <div className="flex items-center gap-2">
@@ -314,40 +330,41 @@ export default function ReaderPage() {
         <div className="grid grid-cols-12 gap-6">
           {/* Navigation Sidebar */}
           {show_outline && (
-          <aside id="outline-panel" className="col-span-3">
-            <div className="bg-white rounded-lg border p-4 sticky top-24">
-              <h2 className="font-semibold mb-3 text-sm text-black">
-                Document Outline
-              </h2>
-              <nav aria-label="Document navigation" className="space-y-1">
-                {structuredContent
-                  .filter((item) => item.type === "heading")
-                  .map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setCurrentPage(item.pageNumber);
-                        setShowOutline(!show_outline);
-                      }}
-                      className={`block w-full text-left px-2 py-1 rounded text-sm hover:bg-gray-100 ${
-                        item.level === 1
-                          ? "font-bold"
-                          : item.level === 2
-                          ? "font-semibold pl-4"
-                          : "pl-6"
-                      } ${
-                        currentPage === item.pageNumber
-                          ? "bg-blue-50 text-blue-700"
-                          : ""
-                      }`}
-                    >
-                      {item.text.substring(0, 50)}
-                      {item.text.length > 50 ? "..." : ""}
-                    </button>
-                  ))}
-              </nav>
-            </div>
-          </aside>)}
+            <aside id="outline-panel" className="col-span-3">
+              <div className="bg-white rounded-lg border p-4 sticky top-24">
+                <h2 className="font-semibold mb-3 text-sm text-black">
+                  Document Outline
+                </h2>
+                <nav aria-label="Document navigation" className="space-y-1">
+                  {structuredContent
+                    .filter((item) => item.type === "heading")
+                    .map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setCurrentPage(item.pageNumber);
+                          setShowOutline(!show_outline);
+                        }}
+                        className={`block w-full text-left px-2 py-1 rounded text-sm hover:bg-gray-100 ${
+                          item.level === 1
+                            ? "font-bold"
+                            : item.level === 2
+                            ? "font-semibold pl-4"
+                            : "pl-6"
+                        } ${
+                          currentPage === item.pageNumber
+                            ? "bg-blue-50 text-blue-700"
+                            : "text-gray-900"
+                        }`}
+                      >
+                        {item.text.substring(0, 50)}
+                        {item.text.length > 50 ? "..." : ""}
+                      </button>
+                    ))}
+                </nav>
+              </div>
+            </aside>
+          )}
 
           {/* Main Reading Canvas */}
           <article className="col-span-9" role="document">
@@ -388,7 +405,7 @@ export default function ReaderPage() {
                         return (
                           <h2
                             key={index}
-                            className="text-2xl font-semibold mt-6 mb-3"
+                            className="text-2xl text-black font-semibold mt-6 mb-3"
                           >
                             {item.text}
                           </h2>
@@ -397,7 +414,7 @@ export default function ReaderPage() {
                         return (
                           <h3
                             key={index}
-                            className="text-xl font-semibold mt-4 mb-2"
+                            className="text-xl text-black font-semibold mt-4 mb-2"
                           >
                             {item.text}
                           </h3>
@@ -434,14 +451,25 @@ export default function ReaderPage() {
               <span className="text-sm text-black">
                 Page {currentPage} of {totalPages}
               </span>
-              <button onClick={() => {
-                const input = prompt(`Enter a page number from 1 to ${totalPages}.`);
-                if (input) {
-                  const page_num = parseInt(input, 10);
-                  if (!isNaN(page_num) && page_num >= 1 && page_num <= totalPages) setCurrentPage(page_num);
-                  else alert("Invalid page number.");
-                }
-              }}>Enter Page Number</button>
+              <button
+                onClick={() => {
+                  const input = prompt(
+                    `Enter a page number from 1 to ${totalPages}.`
+                  );
+                  if (input) {
+                    const page_num = parseInt(input, 10);
+                    if (
+                      !isNaN(page_num) &&
+                      page_num >= 1 &&
+                      page_num <= totalPages
+                    )
+                      setCurrentPage(page_num);
+                    else alert("Invalid page number.");
+                  }
+                }}
+              >
+                Enter Page Number
+              </button>
               <button
                 onClick={() =>
                   setCurrentPage(Math.min(totalPages, currentPage + 1))

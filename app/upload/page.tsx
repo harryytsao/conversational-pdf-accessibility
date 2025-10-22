@@ -8,12 +8,14 @@ export default function UploadPage() {
   const [status, setStatus] = useState<string>("");
   const [file_name, setFileName] = useState<string | null>(null);
   const [meta_data, setMetaData] = useState<any>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
   const router = useRouter();
   //handle file selection
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
     if (!file) return;
-    setStatus("Uploading...");
+    setIsProcessing(true);
+    setStatus("Uploading file to server. Please wait.");
     const form_data = new FormData();
     form_data.append("file", file);
     try {
@@ -24,9 +26,12 @@ export default function UploadPage() {
       const data = await response.json();
       if (response.ok) {
         setFileName(data.file_name);
-        setStatus("Upload successful! Analyzing PDF...");
+        setStatus(
+          `Upload successful! File name: ${file.name}. Now analyzing PDF content. This may take a moment.`
+        );
       } else {
-        setStatus(`Upload failed: ${data.error}`);
+        setStatus(`Upload failed. Error: ${data.error}. Please try again.`);
+        setIsProcessing(false);
         return;
       }
       const analyze_response = await fetch("/api/analyze", {
@@ -36,46 +41,115 @@ export default function UploadPage() {
       });
       const analyze_data = await analyze_response.json();
       if (!analyze_response.ok) {
-        setStatus(`Analysis failed: ${analyze_data.error}`);
+        setStatus(
+          `Analysis failed. Error: ${analyze_data.error}. Please try uploading again.`
+        );
+        setIsProcessing(false);
         return;
       }
       setMetaData(analyze_data);
-      setStatus("Upload and analysis complete!");
+      setStatus(
+        `Success! Analysis complete for ${file.name}. Document has ${analyze_data.page_count} pages. Ready to read.`
+      );
+      setIsProcessing(false);
     } catch (err: any) {
-      setStatus(`❌ Upload failed: ${err.message}`);
+      setStatus(`Upload failed. Error: ${err.message}. Please try again.`);
+      setIsProcessing(false);
     }
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: { "application/pdf": [] },
     multiple: false,
+    disabled: isProcessing,
   });
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-6">
-      <h1 className="text-2xl font-bold mb-4">Upload a PDF</h1>
-      <div
-        {...getRootProps({
-          className:
-            "border-2 border-dashed rounded-xl p-10 w-96 text-center cursor-pointer " +
-            (isDragActive ? "bg-blue-100 border-blue-500" : "border-gray-400"),
-          role: "button",
-          tabIndex: 0,
-          "aria-label": "Drag and drop a PDF file or press Enter to browse.",
-        })}
-      >
-        <input {...getInputProps()} />
-        {isDragActive ? (
-          <p>Drop the file here...</p>
-        ) : (
-          <p>Drag 'n' drop a PDF file here, or click to select one</p>
-        )}
-      </div>
-      <p className="mt-4" aria-live="polite">
-        {status}
-      </p>
+    <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-50">
+      {/* App Header */}
+      <header className="text-center mb-8 max-w-3xl">
+        <h1 className="text-4xl font-bold mb-4 text-gray-900">
+          PDF Accessibility Reader
+        </h1>
+        <p className="text-xl text-gray-800 mb-2">
+          Upload a PDF and get an accessible, screen reader-friendly version
+        </p>
+        <p className="text-lg text-gray-700">
+          We automatically detect headings, structure content, and provide easy
+          navigation
+        </p>
+      </header>
+
+      {/* Upload Area */}
+      <section aria-labelledby="upload-heading" className="w-full max-w-2xl">
+        <h2 id="upload-heading" className="sr-only">
+          Upload your PDF file
+        </h2>
+        <div
+          {...getRootProps({
+            className:
+              "border-4 border-dashed rounded-xl p-12 w-full text-center cursor-pointer transition-all " +
+              (isProcessing
+                ? "bg-gray-200 border-gray-400 cursor-not-allowed"
+                : isDragActive
+                ? "bg-blue-50 border-blue-600 shadow-lg"
+                : "bg-white border-gray-400 hover:border-blue-500 hover:bg-blue-50 focus-within:ring-4 focus-within:ring-blue-300 focus-within:border-blue-600"),
+            role: "button",
+            tabIndex: isProcessing ? -1 : 0,
+            "aria-label": isProcessing
+              ? "File upload in progress. Please wait."
+              : "Upload PDF file. Press Enter or Space to browse for a file, or drag and drop a PDF file here.",
+            "aria-disabled": isProcessing,
+          })}
+        >
+          <input {...getInputProps()} aria-describedby="upload-instructions" />
+          <div id="upload-instructions">
+            {isProcessing ? (
+              <>
+                <p className="text-2xl font-semibold mb-2 text-gray-700">
+                  Processing...
+                </p>
+                <p className="text-lg text-gray-600">
+                  Please wait while we process your file
+                </p>
+              </>
+            ) : isDragActive ? (
+              <>
+                <p className="text-2xl font-semibold mb-2 text-blue-700">
+                  Release to upload
+                </p>
+                <p className="text-lg text-blue-600">Drop your PDF file here</p>
+              </>
+            ) : (
+              <>
+                <p className="text-2xl font-semibold mb-3 text-gray-900">
+                  Upload a PDF File
+                </p>
+                <p className="text-lg text-gray-700 mb-2">
+                  Press Enter or Space to select a file from your computer
+                </p>
+                <p className="text-lg text-gray-700">
+                  Or drag and drop a PDF file here
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Status Messages */}
+      {status && (
+        <div
+          className="mt-6 p-6 bg-white border-2 border-gray-300 rounded-lg max-w-2xl w-full"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <p className="text-lg font-semibold text-gray-900">{status}</p>
+        </div>
+      )}
       {meta_data && (
         <div className="border rounded-xl p-6 w-full max-w-2xl text-left bg-gray-50 mt-6 text-black">
-          <h2 className="text-xl font-bold mb-4">✅ Analysis Complete</h2>
+          <h2 className="text-xl font-bold mb-4">Analysis Complete</h2>
 
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
@@ -121,8 +195,9 @@ export default function UploadPage() {
               {!meta_data.isScanned && (
                 <>
                   <p className="text-sm">
-                    <strong>Font Sizes:</strong> Body font {meta_data.body_font_size}
-                    , Max {meta_data.maxFontSize} (for heading detection)
+                    <strong>Font Sizes:</strong> Body font{" "}
+                    {meta_data.body_font_size}, Max {meta_data.maxFontSize} (for
+                    heading detection)
                   </p>
                   <p className="text-sm">
                     <strong>Total Text Items:</strong>{" "}
