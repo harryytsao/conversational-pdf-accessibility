@@ -19,11 +19,55 @@ interface ExtractedTextItem {
   fontName: string;
 }
 
+interface TableCell {
+  text: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fontSize: number;
+  fontName: string;
+}
+
+interface TableRow {
+  cells: TableCell[];
+}
+
+interface Table {
+  type: "table";
+  rows: TableRow[];
+}
+
+interface Figure {
+  type: "figure";
+  label: string;
+  number: string;
+  caption: string;
+  x: number;
+  y: number;
+  altText: string;
+}
+
+interface Equation {
+  type: "equation";
+  text: string;
+  items: ExtractedTextItem[];
+  y: number;
+}
+
 interface PageContent {
   pageNumber: number;
   text: string;
   textLength: number;
   items: ExtractedTextItem[];
+  width?: number;
+  height?: number;
+  columns?: number;
+  hasTable?: boolean;
+  table?: Table | null;
+  figures?: Figure[];
+  equations?: Equation[];
+  structures?: any[];
 }
 
 async function extractTextWithPdfjs(filePath: string) {
@@ -146,8 +190,16 @@ export async function POST(req: Request) {
         pageNumber: p.pageNumber,
         text: p.text.substring(0, 500), // Preview for response
         textLength: p.textLength,
-        itemCount: p.items.length,
         items: p.items, // Store full items
+        // Include new fields from improved extraction
+        width: p.width,
+        height: p.height,
+        columns: p.columns,
+        hasTable: p.hasTable,
+        table: p.table,
+        figures: p.figures,
+        equations: p.equations,
+        structures: p.structures,
       })),
       extractedAt: new Date().toISOString(),
     };
@@ -165,7 +217,10 @@ export async function POST(req: Request) {
         pageNumber: p.pageNumber,
         text: p.text,
         textLength: p.textLength,
-        itemCount: p.itemCount,
+        hasTable: p.hasTable,
+        columns: p.columns,
+        figures: p.figures,
+        equations: p.equations,
       })),
     };
 

@@ -4,142 +4,15 @@
   "title": "Microsoft Word - Part 2- Project Preliminary Report.docx",
   "author": "Unknown",
   "isScanned": false,
-  "textLength": 2441,
+  "textLength": 2597,
   "body_font_size": 12,
   "maxFontSize": 15.9,
   "pages": [
     {
       "pageNumber": 1,
-      "text": "Course Project – Preliminary Report\nOverview\n\nReport GuidelinesImplement your solution from your designs\n\n\n\nCEN4721c\n\n \n\nA.\n\nB. Design Your Solution\n\nC. Implement Your Solution\n\n\n\n1.\n2.\n3.\n4.\n5.\n\nDesign your solution using either low or\nhigh-fidelity methods (or ideally both)\nEvaluate your designs to identify early\nusability issues.\nRefine your design \n\nFormat must follow the ACM full paper format available here:\nhttps://www.acm.org/binaries/content/assets/publications/word_style/interim-te",
-      "textLength": 1222,
-      "itemCount": 132,
+      "text": "CEN4721c Human-Computer Interaction\n• \n• \n\nCourse Project – Preliminary Report\n• Overview\n• 1. \n\nDevelop a vision.\n• 2. \n\nDesign your solution.\n• 3. \n\nEvaluate your design\n• 4. \n\nImplement your solution\n• 5. \n\nWrite Report and Create Video\n• A.\n• \n\nDevelop a Vision of the solution\n• Grading Criteria:\n• \n\nDevelop a vision of your solution.\n•  Completeness\n• See slides from lecture 07\n•  Quality\n• \n\nB. Design Your Solution\n•  \n\nDesign your solution using either low or\n• Grading Criteria:\n• \n\nh",
+      "textLength": 1330,
       "items": [
-        {
-          "text": "",
-          "x": 72,
-          "y": 654.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 15.9,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "Course Project – Preliminary Report",
-          "x": 72,
-          "y": 654.2,
-          "width": 265.8,
-          "height": 15.9,
-          "fontSize": 15.9,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "",
-          "x": 72,
-          "y": 623.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 14,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "Overview",
-          "x": 72,
-          "y": 623.6,
-          "width": 61.5,
-          "height": 14,
-          "fontSize": 14,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "",
-          "x": 72,
-          "y": 192.8,
-          "width": 0,
-          "height": 0,
-          "fontSize": 14,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "Report Guidelines",
-          "x": 72,
-          "y": 192.8,
-          "width": 116.2,
-          "height": 14,
-          "fontSize": 14,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "",
-          "x": 82.6,
-          "y": 257.9,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Implement your solution from your designs",
-          "x": 82.6,
-          "y": 257.9,
-          "width": 208.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 85.2,
-          "y": 395.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 85.2,
-          "y": 395.6,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 85.2,
-          "y": 367.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 85.2,
-          "y": 367.2,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 85.2,
-          "y": 338.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 85.2,
-          "y": 338.6,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
         {
           "text": "CEN4721c",
           "x": 88.8,
@@ -150,587 +23,11 @@
           "fontName": "g_d0_f1"
         },
         {
-          "text": "",
-          "x": 90,
-          "y": 178.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 178.6,
-          "width": 6.6,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 109.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 109.6,
-          "width": 6.6,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": " ",
-          "x": 90.7,
-          "y": 395.6,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 90.7,
-          "y": 367.2,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 90.7,
-          "y": 338.6,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 93.4,
-          "y": 514.7,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f5"
-        },
-        {
-          "text": "A.",
-          "x": 93.4,
-          "y": 514.7,
-          "width": 10.9,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f5"
-        },
-        {
-          "text": "",
-          "x": 93.4,
-          "y": 425.5,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f5"
-        },
-        {
-          "text": "B. Design Your Solution",
-          "x": 93.4,
-          "y": 425.5,
-          "width": 119.1,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f5"
-        },
-        {
-          "text": "",
-          "x": 93.4,
-          "y": 287,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f5"
-        },
-        {
-          "text": "C. Implement Your Solution",
-          "x": 93.4,
-          "y": 287,
-          "width": 137.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f5"
-        },
-        {
-          "text": " ",
-          "x": 96.6,
-          "y": 178.6,
-          "width": 15.2,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": " ",
-          "x": 96.6,
-          "y": 109.6,
-          "width": 15.2,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 609.4,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "1.",
-          "x": 101,
-          "y": 609.4,
-          "width": 9,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 595.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "2.",
-          "x": 101,
-          "y": 595.6,
-          "width": 9,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 581.8,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "3.",
-          "x": 101,
-          "y": 581.8,
-          "width": 9,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 568,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "4.",
-          "x": 101,
-          "y": 568,
-          "width": 9,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 554.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "5.",
-          "x": 101,
-          "y": 554.2,
-          "width": 9,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Design your solution using either low or",
-          "x": 103.2,
-          "y": 395.6,
-          "width": 193.6,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 103.2,
-          "y": 381.8,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "high-fidelity methods (or ideally both)",
-          "x": 103.2,
-          "y": 381.8,
-          "width": 184.3,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Evaluate your designs to identify early",
-          "x": 103.2,
-          "y": 367.2,
-          "width": 185.1,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 103.2,
-          "y": 353.3,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "usability issues.",
-          "x": 103.2,
-          "y": 353.3,
-          "width": 76,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Refine your design",
-          "x": 103.2,
-          "y": 338.6,
-          "width": 91,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": " ",
-          "x": 104.3,
-          "y": 514.7,
-          "width": 9.5,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f5"
-        },
-        {
-          "text": "Format must follow the ACM full paper format available here:",
-          "x": 108,
-          "y": 178.6,
-          "width": 300.6,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 108,
-          "y": 164.8,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "https://www.acm.org/binaries/content/assets/publications/word_style/interim-template-",
-          "x": 108,
-          "y": 164.8,
-          "width": 417.9,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 108,
-          "y": 151,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "style/interim-layout.docx",
-          "x": 108,
-          "y": 151,
-          "width": 120.8,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Max 6 pages (excluding appendix)",
-          "x": 108,
-          "y": 109.6,
-          "width": 166.3,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": " ",
-          "x": 110,
-          "y": 609.4,
-          "width": 12,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": " ",
-          "x": 110,
-          "y": 595.6,
-          "width": 12,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": " ",
-          "x": 110,
-          "y": 581.8,
-          "width": 12,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": " ",
-          "x": 110,
-          "y": 568,
-          "width": 12,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": " ",
-          "x": 110,
-          "y": 554.2,
-          "width": 12,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Develop a Vision of the solution",
-          "x": 111.4,
-          "y": 514.7,
-          "width": 155.2,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f5"
-        },
-        {
-          "text": "",
-          "x": 111.4,
-          "y": 479.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 111.4,
-          "y": 479.6,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 116.9,
-          "y": 479.6,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "Develop a vision.",
-          "x": 119,
-          "y": 609.4,
-          "width": 84.1,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Design your solution.",
-          "x": 119,
-          "y": 595.6,
-          "width": 103.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Evaluate your design",
-          "x": 119,
-          "y": 581.8,
-          "width": 101.1,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Implement your solution",
-          "x": 119,
-          "y": 568,
-          "width": 118.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Write Report and Create Video",
-          "x": 119,
-          "y": 554.2,
-          "width": 149.7,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 126,
-          "y": 137.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": "",
-          "x": 126,
-          "y": 137.2,
-          "width": 6.6,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": "Develop a vision of your solution.",
-          "x": 129.4,
-          "y": 479.6,
-          "width": 160.4,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 129.4,
-          "y": 465.8,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "See slides from lecture 07",
-          "x": 129.4,
-          "y": 465.8,
-          "width": 122,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": " ",
-          "x": 132.6,
-          "y": 137.2,
-          "width": 15.2,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f8"
-        },
-        {
-          "text": "",
-          "x": 141.2,
-          "y": 693.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 15.9,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "CEN4721c Human-Computer Interaction",
-          "x": 141.2,
-          "y": 693.6,
-          "width": 291.5,
-          "height": 15.9,
-          "fontSize": 15.9,
-          "fontName": "g_d0_f3"
-        },
-        {
           "text": " ",
           "x": 142,
           "y": 38,
           "width": 4.1,
           "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Latex templates can also be found here:",
-          "x": 144,
-          "y": 137.2,
-          "width": 190.3,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 144,
-          "y": 123.4,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "https://www.acm.org/publications/proceedings-template",
-          "x": 144,
-          "y": 123.4,
-          "width": 269.5,
-          "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f1"
         },
@@ -785,357 +82,6 @@
           "y": 38,
           "width": 240.3,
           "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": " ",
-          "x": 291.1,
-          "y": 257.9,
-          "width": 34,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 316.6,
-          "y": 396.5,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Grading Criteria:",
-          "x": 316.6,
-          "y": 396.5,
-          "width": 82,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Grading Criteria",
-          "x": 316.6,
-          "y": 257.9,
-          "width": 78.7,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 316.9,
-          "y": 485.5,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Grading Criteria:",
-          "x": 316.9,
-          "y": 485.5,
-          "width": 82,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 319.3,
-          "y": 243.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 319.3,
-          "y": 243.2,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 319.3,
-          "y": 228.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 319.3,
-          "y": 228.6,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 324.8,
-          "y": 243.2,
-          "width": 4.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 324.8,
-          "y": 228.6,
-          "width": 4.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.3,
-          "y": 381.8,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.3,
-          "y": 381.8,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.3,
-          "y": 367.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.3,
-          "y": 367.2,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.3,
-          "y": 338.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.3,
-          "y": 338.6,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "Completeness",
-          "x": 328.3,
-          "y": 243.2,
-          "width": 67.2,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Difficulty of solution",
-          "x": 328.3,
-          "y": 228.6,
-          "width": 101.8,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 328.7,
-          "y": 470.9,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.7,
-          "y": 470.9,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.7,
-          "y": 456.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 328.7,
-          "y": 456.2,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 333.8,
-          "y": 381.8,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 333.8,
-          "y": 367.2,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 333.8,
-          "y": 338.6,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 334.2,
-          "y": 470.9,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 334.2,
-          "y": 456.2,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "Completeness",
-          "x": 346.3,
-          "y": 381.8,
-          "width": 67.2,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Quality of description and findings of",
-          "x": 346.3,
-          "y": 367.2,
-          "width": 180.7,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 346.3,
-          "y": 353.3,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "informal evaluation.",
-          "x": 346.3,
-          "y": 353.3,
-          "width": 97,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Prototypes should be included as part of",
-          "x": 346.3,
-          "y": 338.6,
-          "width": 192.4,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
-          "x": 346.3,
-          "y": 324.8,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "the Appendix",
-          "x": 346.3,
-          "y": 324.8,
-          "width": 64.7,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Completeness",
-          "x": 346.7,
-          "y": 470.9,
-          "width": 67.2,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Q",
-          "x": 346.7,
-          "y": 456.2,
-          "width": 8.6,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "uality",
-          "x": 355.3,
-          "y": 456.2,
-          "width": 27.3,
-          "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f1"
         },
@@ -1201,14 +147,1074 @@
           "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 72,
+          "y": 654.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 15.9,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "Course Project – Preliminary Report",
+          "x": 72,
+          "y": 654.2,
+          "width": 265.8,
+          "height": 15.9,
+          "fontSize": 15.9,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "",
+          "x": 72,
+          "y": 623.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 14,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "Overview",
+          "x": 72,
+          "y": 623.6,
+          "width": 61.5,
+          "height": 14,
+          "fontSize": 14,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 609.4,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "1.",
+          "x": 101,
+          "y": 609.4,
+          "width": 9,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": " ",
+          "x": 110,
+          "y": 609.4,
+          "width": 12,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Develop a vision.",
+          "x": 119,
+          "y": 609.4,
+          "width": 84.1,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 595.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "2.",
+          "x": 101,
+          "y": 595.6,
+          "width": 9,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": " ",
+          "x": 110,
+          "y": 595.6,
+          "width": 12,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Design your solution.",
+          "x": 119,
+          "y": 595.6,
+          "width": 103.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 581.8,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "3.",
+          "x": 101,
+          "y": 581.8,
+          "width": 9,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": " ",
+          "x": 110,
+          "y": 581.8,
+          "width": 12,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Evaluate your design",
+          "x": 119,
+          "y": 581.8,
+          "width": 101.1,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 568,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "4.",
+          "x": 101,
+          "y": 568,
+          "width": 9,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": " ",
+          "x": 110,
+          "y": 568,
+          "width": 12,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Implement your solution",
+          "x": 119,
+          "y": 568,
+          "width": 118.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 554.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "5.",
+          "x": 101,
+          "y": 554.2,
+          "width": 9,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": " ",
+          "x": 110,
+          "y": 554.2,
+          "width": 12,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Write Report and Create Video",
+          "x": 119,
+          "y": 554.2,
+          "width": 149.7,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 93.4,
+          "y": 514.7,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f5"
+        },
+        {
+          "text": "A.",
+          "x": 93.4,
+          "y": 514.7,
+          "width": 10.9,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f5"
+        },
+        {
+          "text": " ",
+          "x": 104.3,
+          "y": 514.7,
+          "width": 9.5,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f5"
+        },
+        {
+          "text": "Develop a Vision of the solution",
+          "x": 111.4,
+          "y": 514.7,
+          "width": 155.2,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f5"
+        },
+        {
+          "text": "",
+          "x": 111.4,
+          "y": 479.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 111.4,
+          "y": 479.6,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 116.9,
+          "y": 479.6,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Develop a vision of your solution.",
+          "x": 129.4,
+          "y": 479.6,
+          "width": 160.4,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 129.4,
+          "y": 465.8,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "See slides from lecture 07",
+          "x": 129.4,
+          "y": 465.8,
+          "width": 122,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 316.9,
+          "y": 485.5,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Grading Criteria:",
+          "x": 316.9,
+          "y": 485.5,
+          "width": 82,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 328.7,
+          "y": 470.9,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 328.7,
+          "y": 470.9,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 334.2,
+          "y": 470.9,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Completeness",
+          "x": 346.7,
+          "y": 470.9,
+          "width": 67.2,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 328.7,
+          "y": 456.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 328.7,
+          "y": 456.2,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 334.2,
+          "y": 456.2,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Q",
+          "x": 346.7,
+          "y": 456.2,
+          "width": 8.6,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "uality",
+          "x": 355.3,
+          "y": 456.2,
+          "width": 27.3,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 93.4,
+          "y": 425.5,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f5"
+        },
+        {
+          "text": "B. Design Your Solution",
+          "x": 93.4,
+          "y": 425.5,
+          "width": 119.1,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f5"
+        },
+        {
+          "text": "",
+          "x": 85.2,
+          "y": 395.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 85.2,
+          "y": 395.6,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 90.7,
+          "y": 395.6,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Design your solution using either low or",
+          "x": 103.2,
+          "y": 395.6,
+          "width": 193.6,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 103.2,
+          "y": 381.8,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "high-fidelity methods (or ideally both)",
+          "x": 103.2,
+          "y": 381.8,
+          "width": 184.3,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 85.2,
+          "y": 367.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 85.2,
+          "y": 367.2,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 90.7,
+          "y": 367.2,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Evaluate your designs to identify early",
+          "x": 103.2,
+          "y": 367.2,
+          "width": 185.1,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 103.2,
+          "y": 353.3,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "usability issues.",
+          "x": 103.2,
+          "y": 353.3,
+          "width": 76,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 85.2,
+          "y": 338.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 85.2,
+          "y": 338.6,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 90.7,
+          "y": 338.6,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Refine your design",
+          "x": 103.2,
+          "y": 338.6,
+          "width": 91,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 316.6,
+          "y": 396.5,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Grading Criteria:",
+          "x": 316.6,
+          "y": 396.5,
+          "width": 82,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 328.3,
+          "y": 381.8,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 328.3,
+          "y": 381.8,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 333.8,
+          "y": 381.8,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Completeness",
+          "x": 346.3,
+          "y": 381.8,
+          "width": 67.2,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 328.3,
+          "y": 367.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 328.3,
+          "y": 367.2,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 333.8,
+          "y": 367.2,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Quality of description and findings of",
+          "x": 346.3,
+          "y": 367.2,
+          "width": 180.7,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 346.3,
+          "y": 353.3,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "informal evaluation.",
+          "x": 346.3,
+          "y": 353.3,
+          "width": 97,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 328.3,
+          "y": 338.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 328.3,
+          "y": 338.6,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 333.8,
+          "y": 338.6,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Prototypes should be included as part of",
+          "x": 346.3,
+          "y": 338.6,
+          "width": 192.4,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 346.3,
+          "y": 324.8,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "the Appendix",
+          "x": 346.3,
+          "y": 324.8,
+          "width": 64.7,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 93.4,
+          "y": 287,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f5"
+        },
+        {
+          "text": "C. Implement Your Solution",
+          "x": 93.4,
+          "y": 287,
+          "width": 137.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f5"
+        },
+        {
+          "text": "",
+          "x": 82.6,
+          "y": 257.9,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Implement your solution from your designs",
+          "x": 82.6,
+          "y": 257.9,
+          "width": 208.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": " ",
+          "x": 291.1,
+          "y": 257.9,
+          "width": 34,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "Grading Criteria",
+          "x": 316.6,
+          "y": 257.9,
+          "width": 78.7,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 319.3,
+          "y": 243.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 319.3,
+          "y": 243.2,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 324.8,
+          "y": 243.2,
+          "width": 4.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Completeness",
+          "x": 328.3,
+          "y": 243.2,
+          "width": 67.2,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 319.3,
+          "y": 228.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 319.3,
+          "y": 228.6,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 324.8,
+          "y": 228.6,
+          "width": 4.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Difficulty of solution",
+          "x": 328.3,
+          "y": 228.6,
+          "width": 101.8,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 72,
+          "y": 192.8,
+          "width": 0,
+          "height": 0,
+          "fontSize": 14,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "Report Guidelines",
+          "x": 72,
+          "y": 192.8,
+          "width": 116.2,
+          "height": 14,
+          "fontSize": 14,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 178.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 178.6,
+          "width": 6.6,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": " ",
+          "x": 96.6,
+          "y": 178.6,
+          "width": 15.2,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": "Format must follow the ACM full paper format available here:",
+          "x": 108,
+          "y": 178.6,
+          "width": 300.6,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 108,
+          "y": 164.8,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "https://www.acm.org/binaries/content/assets/publications/word_style/interim-template-",
+          "x": 108,
+          "y": 164.8,
+          "width": 417.9,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 108,
+          "y": 151,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "style/interim-layout.docx",
+          "x": 108,
+          "y": 151,
+          "width": 120.8,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 126,
+          "y": 137.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": "",
+          "x": 126,
+          "y": 137.2,
+          "width": 6.6,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": " ",
+          "x": 132.6,
+          "y": 137.2,
+          "width": 15.2,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": "Latex templates can also be found here:",
+          "x": 144,
+          "y": 137.2,
+          "width": 190.3,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 144,
+          "y": 123.4,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "https://www.acm.org/publications/proceedings-template",
+          "x": 144,
+          "y": 123.4,
+          "width": 269.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 109.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 109.6,
+          "width": 6.6,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": " ",
+          "x": 96.6,
+          "y": 109.6,
+          "width": 15.2,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f8"
+        },
+        {
+          "text": "Max 6 pages (excluding appendix)",
+          "x": 108,
+          "y": 109.6,
+          "width": 166.3,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 141.2,
+          "y": 693.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 15.9,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "CEN4721c Human-Computer Interaction",
+          "x": 141.2,
+          "y": 693.6,
+          "width": 291.5,
+          "height": 15.9,
+          "fontSize": 15.9,
+          "fontName": "g_d0_f3"
         }
-      ]
+      ],
+      "width": 612,
+      "height": 792,
+      "columns": 3,
+      "hasTable": false,
+      "table": null,
+      "figures": [],
+      "equations": [],
+      "structures": []
     },
     {
       "pageNumber": 2,
-      "text": "Paper Sections\nIntroduction\nDescribe the problem you are addressing and why it is important.\n\nVision of solution\nInitial Design\nPrototype Evaluation\n\nImplementation\n\nReflection\nInclude a brief team reflection:\n\nVideo Guidelines\n\nCEN4721c\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\nWhat have the biggest challenges been so far?\nWhat are the biggest challenges remaining?\nAny other relevant thoughts or concerns relevant to project advancement, hurdles, or\nchanges?\n\nAt least 3 minutes and 5 minu",
-      "textLength": 1219,
-      "itemCount": 105,
+      "text": "\n• Paper Sections\n• Introduction\n• Describe the problem you are addressing and why it is important.\n•  Who are your end-users?\n•  What are you trying to solve?\n•  Why should people care?\n• Vision of solution\n•  Describe your vision\n• Initial Design\n•  Describe your initial design and the design decisions you made.\n• Prototype Evaluation\n•  Describe how you evaluated your initial designs.\n•  Describe what worked and didn’t work\n•  Describe any changes you made based on feedback received\n•",
+      "textLength": 1267,
       "items": [
         {
           "text": "",
@@ -1266,6 +1272,114 @@
         },
         {
           "text": "",
+          "x": 99,
+          "y": 666.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 99,
+          "y": 666.6,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 104.5,
+          "y": 666.6,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Who are your end-users?",
+          "x": 117,
+          "y": 666.6,
+          "width": 120,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 99,
+          "y": 652,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 99,
+          "y": 652,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 104.5,
+          "y": 652,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "What are you trying to solve?",
+          "x": 117,
+          "y": 652,
+          "width": 142,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 99,
+          "y": 637.3,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 99,
+          "y": 637.3,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 104.5,
+          "y": 637.3,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Why should people care?",
+          "x": 117,
+          "y": 637.3,
+          "width": 121.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
           "x": 72,
           "y": 623.5,
           "width": 0,
@@ -1281,6 +1395,42 @@
           "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f11"
+        },
+        {
+          "text": "",
+          "x": 108,
+          "y": 608.9,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 108,
+          "y": 608.9,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 113.5,
+          "y": 608.9,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Describe your vision",
+          "x": 126,
+          "y": 608.9,
+          "width": 99.8,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
         },
         {
           "text": "",
@@ -1302,6 +1452,42 @@
         },
         {
           "text": "",
+          "x": 99,
+          "y": 580.3,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 99,
+          "y": 580.3,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 104.5,
+          "y": 580.3,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Describe your initial design and the design decisions you made.",
+          "x": 117,
+          "y": 580.3,
+          "width": 305.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
           "x": 72,
           "y": 566.5,
           "width": 0,
@@ -1320,6 +1506,114 @@
         },
         {
           "text": "",
+          "x": 101,
+          "y": 551.9,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 551.9,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 106.5,
+          "y": 551.9,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Describe how you evaluated your initial designs.",
+          "x": 119,
+          "y": 551.9,
+          "width": 234,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 537.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 537.2,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 106.5,
+          "y": 537.2,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Describe what worked and didn’t work",
+          "x": 119,
+          "y": 537.2,
+          "width": 187.4,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 522.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 522.6,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 106.5,
+          "y": 522.6,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Describe any changes you made based on feedback received",
+          "x": 119,
+          "y": 522.6,
+          "width": 289.4,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
           "x": 72,
           "y": 508.8,
           "width": 0,
@@ -1335,6 +1629,78 @@
           "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f11"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 494.2,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 494.2,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 106.5,
+          "y": 494.2,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Provide implementation details.",
+          "x": 119,
+          "y": 494.2,
+          "width": 152.7,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 479.5,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 101,
+          "y": 479.5,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 106.5,
+          "y": 479.5,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "Provide a link to the code repository",
+          "x": 119,
+          "y": 479.5,
+          "width": 174.2,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f1"
         },
         {
           "text": "",
@@ -1374,33 +1740,6 @@
         },
         {
           "text": "",
-          "x": 72,
-          "y": 361.7,
-          "width": 0,
-          "height": 0,
-          "fontSize": 14,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "Video Guidelines",
-          "x": 72,
-          "y": 361.7,
-          "width": 108.6,
-          "height": 14,
-          "fontSize": 14,
-          "fontName": "g_d0_f3"
-        },
-        {
-          "text": "CEN4721c",
-          "x": 88.8,
-          "y": 38,
-          "width": 53.2,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "",
           "x": 90,
           "y": 437.2,
           "width": 0,
@@ -1418,407 +1757,11 @@
           "fontName": "g_d0_f7"
         },
         {
-          "text": "",
-          "x": 90,
-          "y": 422.5,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 422.5,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 407.9,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 407.9,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 346.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 346.6,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 331.9,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 331.9,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 317.3,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 90,
-          "y": 317.3,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
           "text": " ",
           "x": 95.5,
           "y": 437.2,
           "width": 16.7,
           "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 95.5,
-          "y": 422.5,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 95.5,
-          "y": 407.9,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 95.5,
-          "y": 346.6,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 95.5,
-          "y": 331.9,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 95.5,
-          "y": 317.3,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 99,
-          "y": 666.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 99,
-          "y": 666.6,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 99,
-          "y": 652,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 99,
-          "y": 652,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 99,
-          "y": 637.3,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 99,
-          "y": 637.3,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 99,
-          "y": 580.3,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 99,
-          "y": 580.3,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 551.9,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 551.9,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 537.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 537.2,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 522.6,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 522.6,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 494.2,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 494.2,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 479.5,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 101,
-          "y": 479.5,
-          "width": 5.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 104.5,
-          "y": 666.6,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 104.5,
-          "y": 652,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 104.5,
-          "y": 637.3,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 104.5,
-          "y": 580.3,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 106.5,
-          "y": 551.9,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 106.5,
-          "y": 537.2,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 106.5,
-          "y": 522.6,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 106.5,
-          "y": 494.2,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": " ",
-          "x": 106.5,
-          "y": 479.5,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 108,
-          "y": 608.9,
-          "width": 0,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "",
-          "x": 108,
-          "y": 608.9,
-          "width": 5.5,
-          "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f7"
         },
@@ -1832,6 +1775,33 @@
           "fontName": "g_d0_f1"
         },
         {
+          "text": "",
+          "x": 90,
+          "y": 422.5,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 422.5,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 95.5,
+          "y": 422.5,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
           "text": "What are the biggest challenges remaining?",
           "x": 108,
           "y": 422.5,
@@ -1839,6 +1809,33 @@
           "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 407.9,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 407.9,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 95.5,
+          "y": 407.9,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
         },
         {
           "text": "Any other relevant thoughts or concerns relevant to project advancement, hurdles, or",
@@ -1868,6 +1865,51 @@
           "fontName": "g_d0_f1"
         },
         {
+          "text": "",
+          "x": 72,
+          "y": 361.7,
+          "width": 0,
+          "height": 0,
+          "fontSize": 14,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "Video Guidelines",
+          "x": 72,
+          "y": 361.7,
+          "width": 108.6,
+          "height": 14,
+          "fontSize": 14,
+          "fontName": "g_d0_f3"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 346.6,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 346.6,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 95.5,
+          "y": 346.6,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
           "text": "At least 3 minutes and 5 minutes maximum",
           "x": 108,
           "y": 346.6,
@@ -1877,6 +1919,33 @@
           "fontName": "g_d0_f1"
         },
         {
+          "text": "",
+          "x": 90,
+          "y": 331.9,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 331.9,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 95.5,
+          "y": 331.9,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
           "text": "Submit in any common video format (.mp4, .avi, .mov, etc.)",
           "x": 108,
           "y": 331.9,
@@ -1884,6 +1953,33 @@
           "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f1"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 317.3,
+          "width": 0,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": "",
+          "x": 90,
+          "y": 317.3,
+          "width": 5.5,
+          "height": 12,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
+        },
+        {
+          "text": " ",
+          "x": 95.5,
+          "y": 317.3,
+          "width": 16.7,
+          "height": 0,
+          "fontSize": 12,
+          "fontName": "g_d0_f7"
         },
         {
           "text": "Video should be an elevator pitch that quickly describes the problem, why it is important,",
@@ -1931,100 +2027,10 @@
           "fontName": "g_d0_f1"
         },
         {
-          "text": " ",
-          "x": 113.5,
-          "y": 608.9,
-          "width": 16.7,
-          "height": 0,
-          "fontSize": 12,
-          "fontName": "g_d0_f7"
-        },
-        {
-          "text": "Who are your end-users?",
-          "x": 117,
-          "y": 666.6,
-          "width": 120,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "What are you trying to solve?",
-          "x": 117,
-          "y": 652,
-          "width": 142,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Why should people care?",
-          "x": 117,
-          "y": 637.3,
-          "width": 121.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Describe your initial design and the design decisions you made.",
-          "x": 117,
-          "y": 580.3,
-          "width": 305.5,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Describe how you evaluated your initial designs.",
-          "x": 119,
-          "y": 551.9,
-          "width": 234,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Describe what worked and didn’t work",
-          "x": 119,
-          "y": 537.2,
-          "width": 187.4,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Describe any changes you made based on feedback received",
-          "x": 119,
-          "y": 522.6,
-          "width": 289.4,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Provide implementation details.",
-          "x": 119,
-          "y": 494.2,
-          "width": 152.7,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Provide a link to the code repository",
-          "x": 119,
-          "y": 479.5,
-          "width": 174.2,
-          "height": 12,
-          "fontSize": 12,
-          "fontName": "g_d0_f1"
-        },
-        {
-          "text": "Describe your vision",
-          "x": 126,
-          "y": 608.9,
-          "width": 99.8,
+          "text": "CEN4721c",
+          "x": 88.8,
+          "y": 38,
+          "width": 53.2,
           "height": 12,
           "fontSize": 12,
           "fontName": "g_d0_f1"
@@ -2155,8 +2161,16 @@
           "fontSize": 12,
           "fontName": "g_d0_f1"
         }
-      ]
+      ],
+      "width": 612,
+      "height": 792,
+      "columns": 1,
+      "hasTable": false,
+      "table": null,
+      "figures": [],
+      "equations": [],
+      "structures": []
     }
   ],
-  "extractedAt": "2025-10-21T22:49:56.713Z"
+  "extractedAt": "2025-10-23T01:13:17.628Z"
 }

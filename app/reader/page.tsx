@@ -1,10 +1,13 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Link from "next/link";
-import { it } from "node:test";
+import TableHeaderEditor from "./components/TableHeaderEditor";
+import FigureAltTextEditor from "./components/FigureAltTextEditor";
+import MathReadout from "./components/MathReadout";
+import GroundedQA from "./components/GroundedQA";
 
 interface TextItem {
   text: string;
@@ -12,6 +15,44 @@ interface TextItem {
   y: number;
   fontSize: number;
   fontName: string;
+  width?: number;
+  height?: number;
+}
+
+interface TableCell {
+  text: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fontSize: number;
+  fontName: string;
+}
+
+interface TableRow {
+  cells: TableCell[];
+}
+
+interface Table {
+  type: "table";
+  rows: TableRow[];
+}
+
+interface Figure {
+  type: "figure";
+  label: string;
+  number: string;
+  caption: string;
+  x: number;
+  y: number;
+  altText: string;
+}
+
+interface Equation {
+  type: "equation";
+  text: string;
+  items: TextItem[];
+  y: number;
 }
 
 interface PageData {
@@ -19,6 +60,14 @@ interface PageData {
   text: string;
   textLength: number;
   items: TextItem[];
+  width?: number;
+  height?: number;
+  columns?: number;
+  hasTable?: boolean;
+  table?: Table | null;
+  figures?: Figure[];
+  equations?: Equation[];
+  structures?: any[];
 }
 
 interface DocumentData {
@@ -34,11 +83,15 @@ interface DocumentData {
 }
 
 interface StructuredContent {
-  type: "heading" | "paragraph" | "text";
-  text: string;
+  type: "heading" | "paragraph" | "text" | "table" | "figure" | "equation";
+  text?: string;
   level?: number; // for headings: 1, 2, 3
   fontSize?: number;
   pageNumber: number;
+  table?: Table;
+  figure?: Figure;
+  equation?: Equation;
+  equationIndex?: number;
 }
 
 //Function to create a scoring system to determine heading levels
@@ -86,6 +139,32 @@ export default function ReaderPage() {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [show_outline, setShowOutline] = useState(false);
+  const [showQA, setShowQA] = useState(false);
+  const [editingTable, setEditingTable] = useState<Table | null>(null);
+  const [editingFigure, setEditingFigure] = useState<Figure | null>(null);
+  const [exporting, setExporting] = useState(false);
+  const [showExportMenu, setShowExportMenu] = useState(false);
+  const exportMenuRef = useRef<HTMLDivElement>(null);
+
+  // Close export menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        exportMenuRef.current &&
+        !exportMenuRef.current.contains(event.target as Node)
+      ) {
+        setShowExportMenu(false);
+      }
+    };
+
+    if (showExportMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showExportMenu]);
 
   useEffect(() => {
     if (!fileName) {
@@ -200,9 +279,114 @@ export default function ReaderPage() {
           pageNumber: page.pageNumber,
         });
       }
+
+      // Add table if present (after other content)
+      if (page.hasTable && page.table) {
+        content.push({
+          type: "table",
+          pageNumber: page.pageNumber,
+          table: page.table,
+        });
+      }
+
+      // Add figures
+      if (page.figures && page.figures.length > 0) {
+        page.figures.forEach((figure) => {
+          content.push({
+            type: "figure",
+            pageNumber: page.pageNumber,
+            figure: figure,
+          });
+        });
+      }
+
+      // Add equations
+      if (page.equations && page.equations.length > 0) {
+        page.equations.forEach((equation, index) => {
+          content.push({
+            type: "equation",
+            pageNumber: page.pageNumber,
+            equation: equation,
+            equationIndex: index,
+          });
+        });
+      }
     });
 
     return content;
+  };
+
+  // Export handlers
+  const handleExportHTML = async () => {
+    if (!fileName) return;
+    setExporting(true);
+    try {
+      const response = await fetch("/api/export/html", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ file_name: fileName }),
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${fileName.replace(".pdf", "")}-accessible.html`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      } else {
+        alert("Export failed");
+      }
+    } catch (err) {
+      console.error("Export error:", err);
+      alert("Export failed");
+    } finally {
+      setExporting(false);
+    }
+  };
+
+  const handleExportPDFUA = async () => {
+    if (!fileName) return;
+    setExporting(true);
+    try {
+      const response = await fetch("/api/export/pdfua", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ file_name: fileName }),
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${fileName.replace(".pdf", "")}-accessible.pdf`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      } else {
+        alert("Export failed");
+      }
+    } catch (err) {
+      console.error("Export error:", err);
+      alert("Export failed");
+    } finally {
+      setExporting(false);
+    }
+  };
+
+  const handleSaveTable = (updatedTable: Table) => {
+    // In a real app, this would save to backend
+    console.log("Table updated:", updatedTable);
+    setEditingTable(null);
+    alert("Table headers saved!");
+  };
+
+  const handleSaveFigure = (updatedFigure: Figure) => {
+    // In a real app, this would save to backend and update the JSON
+    console.log("Figure updated:", updatedFigure);
+    setEditingFigure(null);
+    alert("Figure description saved!");
   };
 
   if (loading) {
@@ -258,14 +442,56 @@ export default function ReaderPage() {
                 <p className="text-sm text-black">by {documentData.author}</p>
               </div>
             </div>
-            <button
-              onClick={() => setShowOutline(!show_outline)}
-              className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black"
-              aria-expanded={show_outline}
-              aria-controls="outline-panel"
-            >
-              {show_outline ? "Hide Outline" : "Show Outline"}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setShowOutline(!show_outline)}
+                className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black"
+                aria-expanded={show_outline ? "true" : "false"}
+                aria-controls="outline-panel"
+              >
+                {show_outline ? "Hide Outline" : "Show Outline"}
+              </button>
+              <button
+                onClick={() => setShowQA(!showQA)}
+                className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black"
+                style={{ backgroundColor: showQA ? "#e0f2fe" : "transparent" }}
+              >
+                {showQA ? "Hide Q&A" : "Ask Questions"}
+              </button>
+              <div className="relative" ref={exportMenuRef}>
+                <button
+                  onClick={() => setShowExportMenu(!showExportMenu)}
+                  disabled={exporting}
+                  className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black disabled:opacity-50"
+                >
+                  {exporting ? "Exporting..." : "Export ▾"}
+                </button>
+                {showExportMenu && (
+                  <div className="absolute right-0 mt-1 w-48 bg-white border rounded-lg shadow-lg z-20">
+                    <button
+                      onClick={() => {
+                        handleExportHTML();
+                        setShowExportMenu(false);
+                      }}
+                      disabled={exporting}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-sm text-black rounded-t-lg disabled:opacity-50"
+                    >
+                      Export as HTML
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleExportPDFUA();
+                        setShowExportMenu(false);
+                      }}
+                      disabled={exporting}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-sm text-black rounded-b-lg disabled:opacity-50"
+                    >
+                      Export as PDF/UA
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
             <div className="flex items-center gap-4">
               {/* Page navigation */}
               <div className="flex items-center gap-2">
@@ -326,8 +552,10 @@ export default function ReaderPage() {
       </div>
 
       {/* Main Content Area */}
-      <main className="max-w-5xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-12 gap-6">
+      <main className="max-w-7xl mx-auto px-6 py-8">
+        <div
+          className={`grid ${showQA ? "grid-cols-12" : "grid-cols-12"} gap-6`}
+        >
           {/* Navigation Sidebar */}
           {show_outline && (
             <aside id="outline-panel" className="col-span-3">
@@ -357,8 +585,8 @@ export default function ReaderPage() {
                             : "text-gray-900"
                         }`}
                       >
-                        {item.text.substring(0, 50)}
-                        {item.text.length > 50 ? "..." : ""}
+                        {item.text?.substring(0, 50) || ""}
+                        {(item.text?.length || 0) > 50 ? "..." : ""}
                       </button>
                     ))}
                 </nav>
@@ -367,7 +595,10 @@ export default function ReaderPage() {
           )}
 
           {/* Main Reading Canvas */}
-          <article className="col-span-9" role="document">
+          <article
+            className={showQA ? "col-span-6" : "col-span-9"}
+            role="document"
+          >
             <div
               className="bg-white rounded-lg border shadow-sm p-8 min-h-[600px]"
               role="region"
@@ -390,7 +621,99 @@ export default function ReaderPage() {
               ) : pageContent.length > 0 ? (
                 <div className="prose prose-lg max-w-none">
                   {pageContent.map((item, index) => {
-                    if (item.type === "heading") {
+                    if (item.type === "table" && item.table) {
+                      // Render table
+                      return (
+                        <div key={index} className="my-6 overflow-x-auto">
+                          <table className="min-w-full border-collapse border-2 border-gray-400">
+                            <tbody>
+                              {item.table.rows.map((row, rowIndex) => (
+                                <tr
+                                  key={rowIndex}
+                                  className="border-b border-gray-400"
+                                >
+                                  {row.cells
+                                    .filter(
+                                      (cell) => cell.text.trim().length > 0
+                                    )
+                                    .map((cell, cellIndex) => {
+                                      const cellText = cell.text.trim();
+
+                                      // Determine if this is a header cell (larger font or bold)
+                                      const isHeader =
+                                        cell.fontSize > 12 ||
+                                        cell.fontName
+                                          .toLowerCase()
+                                          .includes("bold");
+                                      const CellTag = isHeader ? "th" : "td";
+
+                                      return (
+                                        <CellTag
+                                          key={cellIndex}
+                                          className={`px-4 py-3 border border-gray-400 text-left ${
+                                            isHeader
+                                              ? "bg-blue-50 font-semibold text-gray-900"
+                                              : "bg-white text-gray-800"
+                                          }`}
+                                        >
+                                          {cellText}
+                                        </CellTag>
+                                      );
+                                    })}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                          <button
+                            onClick={() =>
+                              item.table && setEditingTable(item.table)
+                            }
+                            className="mt-2 px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 text-sm"
+                          >
+                            ✏️ Edit Table Headers
+                          </button>
+                        </div>
+                      );
+                    } else if (item.type === "figure" && item.figure) {
+                      // Render figure
+                      return (
+                        <div
+                          key={index}
+                          className="my-6 border-2 border-blue-200 bg-blue-50 rounded-lg p-4"
+                        >
+                          <div className="font-semibold text-lg text-blue-900 mb-2">
+                            {item.figure.label}
+                          </div>
+                          <div className="text-sm text-gray-700 mb-2">
+                            {item.figure.caption}
+                          </div>
+                          {item.figure.altText && (
+                            <div className="bg-white p-3 rounded border border-blue-300 mb-2">
+                              <strong className="text-sm">Description:</strong>
+                              <p className="text-sm text-gray-800 mt-1">
+                                {item.figure.altText}
+                              </p>
+                            </div>
+                          )}
+                          <button
+                            onClick={() => setEditingFigure(item.figure!)}
+                            className="px-3 py-1 bg-purple-100 text-purple-700 rounded hover:bg-purple-200 text-sm"
+                          >
+                            ✏️ {item.figure.altText ? "Edit" : "Add"}{" "}
+                            Description
+                          </button>
+                        </div>
+                      );
+                    } else if (item.type === "equation" && item.equation) {
+                      // Render equation
+                      return (
+                        <MathReadout
+                          key={index}
+                          equation={item.equation}
+                          equationIndex={item.equationIndex || 0}
+                        />
+                      );
+                    } else if (item.type === "heading") {
                       // Render appropriate heading based on level
                       if (item.level === 1) {
                         return (
@@ -481,8 +804,37 @@ export default function ReaderPage() {
               </button>
             </div>
           </article>
+
+          {/* Q&A Panel */}
+          {showQA && (
+            <aside className="col-span-3">
+              <div className="sticky top-24">
+                <GroundedQA
+                  documentData={documentData}
+                  onNavigateToPage={(page) => setCurrentPage(page)}
+                />
+              </div>
+            </aside>
+          )}
         </div>
       </main>
+
+      {/* Modals */}
+      {editingTable && (
+        <TableHeaderEditor
+          table={editingTable}
+          onSave={handleSaveTable}
+          onClose={() => setEditingTable(null)}
+        />
+      )}
+
+      {editingFigure && (
+        <FigureAltTextEditor
+          figure={editingFigure}
+          onSave={handleSaveFigure}
+          onClose={() => setEditingFigure(null)}
+        />
+      )}
     </div>
   );
 }
