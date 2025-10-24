@@ -257,64 +257,132 @@ export default function ReaderPage() {
         return b.y - a.y;
       });
 
-      // Group items into semantic units
-      let currentText = "";
-      let currentFontSize = 0;
+      // First, group items by line (same Y position)
+      const lines: Array<{
+        items: TextItem[];
+        y: number;
+        avgFontSize: number;
+        maxFontSize: number;
+        text: string;
+      }> = [];
+
+      let currentLine: TextItem[] = [];
+      let currentY = sortedItems[0]?.y || 0;
 
       sortedItems.forEach((item, index) => {
-        const text = item.text.trim();
-        if (!text) return;
+        if (!item.text.trim()) return;
 
-        // Check if this item is a heading
-        if (item.fontSize > data.body_font_size && text.length > 3) {
-          // Save previous paragraph if exists
-          if (currentText) {
+        // Check if this item is on the same line as previous (within 5 units)
+        if (index === 0 || Math.abs(item.y - currentY) < 5) {
+          currentLine.push(item);
+        } else {
+          // Save previous line
+          if (currentLine.length > 0) {
+            const avgFontSize =
+              currentLine.reduce((sum, i) => sum + i.fontSize, 0) /
+              currentLine.length;
+            const maxFontSize = Math.max(...currentLine.map((i) => i.fontSize));
+            const text = currentLine
+              .map((i) => i.text)
+              .join(" ")
+              .trim();
+            lines.push({
+              items: currentLine,
+              y: currentY,
+              avgFontSize,
+              maxFontSize,
+              text,
+            });
+          }
+          // Start new line
+          currentLine = [item];
+          currentY = item.y;
+        }
+      });
+
+      // Don't forget the last line
+      if (currentLine.length > 0) {
+        const avgFontSize =
+          currentLine.reduce((sum, i) => sum + i.fontSize, 0) /
+          currentLine.length;
+        const maxFontSize = Math.max(...currentLine.map((i) => i.fontSize));
+        const text = currentLine
+          .map((i) => i.text)
+          .join(" ")
+          .trim();
+        lines.push({
+          items: currentLine,
+          y: currentY,
+          avgFontSize,
+          maxFontSize,
+          text,
+        });
+      }
+
+      // Now process lines as semantic units
+      let currentParagraph = "";
+
+      lines.forEach((line, index) => {
+        // Check if this line is a heading (use max font size from line)
+        const isLargeFont = line.maxFontSize > data.body_font_size;
+        const hasMinLength = line.text.length >= 3;
+        const notTooLong = line.text.length < 120;
+
+        if (isLargeFont && hasMinLength && notTooLong) {
+          // This line is a heading - save any previous paragraph
+          if (currentParagraph.trim()) {
             content.push({
               type: "paragraph",
-              text: currentText.trim(),
+              text: currentParagraph.trim(),
               pageNumber: page.pageNumber,
             });
-            currentText = "";
+            currentParagraph = "";
           }
 
-          // Determine heading level
-          const level = determineHeadingLevel(
-            item,
-            data.body_font_size,
-            data.maxFontSize
+          // Determine heading level using the line's max font size
+          const representativeItem = line.items.reduce((max, item) =>
+            item.fontSize > max.fontSize ? item : max
           );
+          const level = determineHeadingLevel(
+            representativeItem,
+            data.body_font_size,
+            page.width || 600
+          );
+
           content.push({
             type: "heading",
-            text: text,
+            text: line.text,
             level: level,
-            fontSize: item.fontSize,
+            fontSize: line.maxFontSize,
             pageNumber: page.pageNumber,
           });
         } else {
           // Regular text - accumulate into paragraphs
-          currentText += (currentText ? " " : "") + text;
-          currentFontSize = item.fontSize;
+          currentParagraph += (currentParagraph ? " " : "") + line.text;
 
-          // End paragraph on line break or significant gap
-          const nextItem = sortedItems[index + 1];
-          if (!nextItem || Math.abs(nextItem.y - item.y) > 15) {
-            if (currentText.trim()) {
+          // End paragraph on significant gap to next line
+          const nextLine = lines[index + 1];
+          if (
+            !nextLine ||
+            Math.abs(nextLine.y - line.y) > line.avgFontSize * 2
+          ) {
+            if (currentParagraph.trim()) {
               content.push({
                 type: "paragraph",
-                text: currentText.trim(),
+                text: currentParagraph.trim(),
                 pageNumber: page.pageNumber,
               });
-              currentText = "";
+              currentParagraph = "";
             }
           }
         }
       });
 
-      // Add any remaining text
-      if (currentText.trim()) {
+      // Add any remaining paragraph text
+      if (currentParagraph.trim()) {
         content.push({
           type: "paragraph",
-          text: currentText.trim(),
+          text: currentParagraph.trim(),
           pageNumber: page.pageNumber,
         });
       }
@@ -509,7 +577,7 @@ export default function ReaderPage() {
               <button
                 onClick={() => setShowOutline(!show_outline)}
                 className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black"
-                aria-expanded={show_outline}
+                aria-expanded={show_outline ? "true" : "false"}
                 aria-controls="outline-panel"
               >
                 {show_outline ? "Hide Outline" : "Show Outline"}
