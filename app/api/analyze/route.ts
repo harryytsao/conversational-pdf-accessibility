@@ -125,7 +125,11 @@ export async function POST(req: Request) {
     console.log("Extracting metadata...");
     const pdf_doc = await PDFDocument.load(buffer);
     const page_count = pdf_doc.getPageCount();
-    const title = pdf_doc.getTitle() || "Unknown";
+
+    // Use filename as fallback if no embedded title
+    const embeddedTitle = pdf_doc.getTitle();
+    const title = embeddedTitle || file_name.replace(/\.pdf$/i, "");
+
     const author = pdf_doc.getAuthor() || "Unknown";
     console.log(`Metadata: ${page_count} pages, title: "${title}"`);
 
