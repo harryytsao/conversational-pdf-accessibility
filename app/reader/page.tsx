@@ -145,6 +145,45 @@ export default function ReaderPage() {
   const [exporting, setExporting] = useState(false);
   const [showExportMenu, setShowExportMenu] = useState(false);
   const exportMenuRef = useRef<HTMLDivElement>(null);
+  const contentRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const mainContentRef = useRef<HTMLDivElement>(null);
+
+  // Update current page indicator based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!mainContentRef.current) return;
+
+      const scrollPosition = mainContentRef.current.scrollTop;
+      const pageElements = Array.from(
+        mainContentRef.current.querySelectorAll("[data-page-number]")
+      );
+
+      for (let i = pageElements.length - 1; i >= 0; i--) {
+        const element = pageElements[i] as HTMLElement;
+        const elementTop = element.offsetTop - mainContentRef.current.offsetTop;
+
+        if (scrollPosition >= elementTop - 100) {
+          const pageNum = parseInt(
+            element.getAttribute("data-page-number") || "1",
+            10
+          );
+          setCurrentPage(pageNum);
+          break;
+        }
+      }
+    };
+
+    const contentEl = mainContentRef.current;
+    if (contentEl) {
+      contentEl.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (contentEl) {
+        contentEl.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [structuredContent]);
 
   // Close export menu when clicking outside
   useEffect(() => {
@@ -389,6 +428,34 @@ export default function ReaderPage() {
     alert("Figure description saved!");
   };
 
+  const scrollToContent = (index: number) => {
+    const key = `content-${index}`;
+    const element = contentRefs.current.get(key);
+    if (element && mainContentRef.current) {
+      const elementTop = element.offsetTop - mainContentRef.current.offsetTop;
+      mainContentRef.current.scrollTo({
+        top: elementTop - 20,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToPage = (pageNumber: number) => {
+    if (!mainContentRef.current) return;
+    const pageElement = mainContentRef.current.querySelector(
+      `[data-page-number="${pageNumber}"]`
+    );
+    if (pageElement && mainContentRef.current) {
+      const elementTop =
+        (pageElement as HTMLElement).offsetTop -
+        mainContentRef.current.offsetTop;
+      mainContentRef.current.scrollTo({
+        top: elementTop - 20,
+        behavior: "smooth",
+      });
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -415,10 +482,6 @@ export default function ReaderPage() {
     );
   }
 
-  // Get content for current page
-  const pageContent = structuredContent.filter(
-    (item) => item.pageNumber === currentPage
-  );
   const totalPages = documentData.page_count;
 
   return (
@@ -446,15 +509,16 @@ export default function ReaderPage() {
               <button
                 onClick={() => setShowOutline(!show_outline)}
                 className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black"
-                aria-expanded={show_outline ? "true" : "false"}
+                aria-expanded={show_outline}
                 aria-controls="outline-panel"
               >
                 {show_outline ? "Hide Outline" : "Show Outline"}
               </button>
               <button
                 onClick={() => setShowQA(!showQA)}
-                className="px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black"
-                style={{ backgroundColor: showQA ? "#e0f2fe" : "transparent" }}
+                className={`px-3 py-1 border rounded-lg hover:bg-gray-100 text-sm text-black ${
+                  showQA ? "bg-blue-100" : ""
+                }`}
               >
                 {showQA ? "Hide Q&A" : "Ask Questions"}
               </button>
@@ -493,29 +557,11 @@ export default function ReaderPage() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              {/* Page navigation */}
+              {/* Page indicator */}
               <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                  disabled={currentPage === 1}
-                  className="px-3 py-1 rounded border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 text-black"
-                  aria-label="Previous page"
-                >
-                  ←
-                </button>
                 <span className="text-sm text-black">
                   Page {currentPage} of {totalPages}
                 </span>
-                <button
-                  onClick={() =>
-                    setCurrentPage(Math.min(totalPages, currentPage + 1))
-                  }
-                  disabled={currentPage === totalPages}
-                  className="px-3 py-1 rounded border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 text-black"
-                  aria-label="Next page"
-                >
-                  →
-                </button>
               </div>
             </div>
           </div>
@@ -566,29 +612,32 @@ export default function ReaderPage() {
                 <nav aria-label="Document navigation" className="space-y-1">
                   {structuredContent
                     .filter((item) => item.type === "heading")
-                    .map((item, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setCurrentPage(item.pageNumber);
-                          setShowOutline(!show_outline);
-                        }}
-                        className={`block w-full text-left px-2 py-1 rounded text-sm hover:bg-gray-100 ${
-                          item.level === 1
-                            ? "font-bold"
-                            : item.level === 2
-                            ? "font-semibold pl-4"
-                            : "pl-6"
-                        } ${
-                          currentPage === item.pageNumber
-                            ? "bg-blue-50 text-blue-700"
-                            : "text-gray-900"
-                        }`}
-                      >
-                        {item.text?.substring(0, 50) || ""}
-                        {(item.text?.length || 0) > 50 ? "..." : ""}
-                      </button>
-                    ))}
+                    .map((item, index) => {
+                      const contentIndex = structuredContent.indexOf(item);
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            scrollToContent(contentIndex);
+                            setShowOutline(false);
+                          }}
+                          className={`block w-full text-left px-2 py-1 rounded text-sm hover:bg-gray-100 ${
+                            item.level === 1
+                              ? "font-bold"
+                              : item.level === 2
+                              ? "font-semibold pl-4"
+                              : "pl-6"
+                          } ${
+                            currentPage === item.pageNumber
+                              ? "bg-blue-50 text-blue-700"
+                              : "text-gray-900"
+                          }`}
+                        >
+                          {item.text?.substring(0, 50) || ""}
+                          {(item.text?.length || 0) > 50 ? "..." : ""}
+                        </button>
+                      );
+                    })}
                 </nav>
               </div>
             </aside>
@@ -600,9 +649,10 @@ export default function ReaderPage() {
             role="document"
           >
             <div
-              className="bg-white rounded-lg border shadow-sm p-8 min-h-[600px]"
+              ref={mainContentRef}
+              className="bg-white rounded-lg border shadow-sm p-8 max-h-[calc(100vh-200px)] overflow-y-auto"
               role="region"
-              aria-label={`Page ${currentPage} content`}
+              aria-label="Document content"
             >
               {documentData.isScanned ? (
                 <div className="text-center py-12">
@@ -618,141 +668,141 @@ export default function ReaderPage() {
                     Process with Vision Model →
                   </button>
                 </div>
-              ) : pageContent.length > 0 ? (
+              ) : structuredContent.length > 0 ? (
                 <div className="prose prose-lg max-w-none">
-                  {pageContent.map((item, index) => {
-                    if (item.type === "table" && item.table) {
-                      // Render table
-                      return (
-                        <div key={index} className="my-6 overflow-x-auto">
-                          <table className="min-w-full border-collapse border-2 border-gray-400">
-                            <tbody>
-                              {item.table.rows.map((row, rowIndex) => (
-                                <tr
-                                  key={rowIndex}
-                                  className="border-b border-gray-400"
-                                >
-                                  {row.cells
-                                    .filter(
-                                      (cell) => cell.text.trim().length > 0
-                                    )
-                                    .map((cell, cellIndex) => {
-                                      const cellText = cell.text.trim();
+                  {structuredContent.map((item, index) => {
+                    const isFirstItemOnPage =
+                      index === 0 ||
+                      structuredContent[index - 1].pageNumber !==
+                        item.pageNumber;
+                    const key = `content-${index}`;
 
-                                      // Determine if this is a header cell (larger font or bold)
-                                      const isHeader =
-                                        cell.fontSize > 12 ||
-                                        cell.fontName
-                                          .toLowerCase()
-                                          .includes("bold");
-                                      const CellTag = isHeader ? "th" : "td";
-
-                                      return (
-                                        <CellTag
-                                          key={cellIndex}
-                                          className={`px-4 py-3 border border-gray-400 text-left ${
-                                            isHeader
-                                              ? "bg-blue-50 font-semibold text-gray-900"
-                                              : "bg-white text-gray-800"
-                                          }`}
-                                        >
-                                          {cellText}
-                                        </CellTag>
-                                      );
-                                    })}
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                          <button
-                            onClick={() =>
-                              item.table && setEditingTable(item.table)
-                            }
-                            className="mt-2 px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 text-sm"
+                    return (
+                      <div
+                        key={index}
+                        ref={(el) => {
+                          if (el) {
+                            contentRefs.current.set(key, el);
+                          }
+                        }}
+                      >
+                        {/* Page break marker */}
+                        {isFirstItemOnPage && (
+                          <div
+                            data-page-number={item.pageNumber}
+                            className="flex items-center gap-3 mb-6 mt-8 first:mt-0"
                           >
-                            ✏️ Edit Table Headers
-                          </button>
-                        </div>
-                      );
-                    } else if (item.type === "figure" && item.figure) {
-                      // Render figure
-                      return (
-                        <div
-                          key={index}
-                          className="my-6 border-2 border-blue-200 bg-blue-50 rounded-lg p-4"
-                        >
-                          <div className="font-semibold text-lg text-blue-900 mb-2">
-                            {item.figure.label}
+                            <div className="h-px flex-1 bg-gray-300"></div>
+                            <span className="text-xs font-medium text-gray-500 px-2 py-1 bg-gray-100 rounded">
+                              Page {item.pageNumber}
+                            </span>
+                            <div className="h-px flex-1 bg-gray-300"></div>
                           </div>
-                          <div className="text-sm text-gray-700 mb-2">
-                            {item.figure.caption}
+                        )}
+
+                        {/* Content rendering */}
+                        {item.type === "table" && item.table ? (
+                          <div className="my-6 overflow-x-auto">
+                            <table className="min-w-full border-collapse border-2 border-gray-400">
+                              <tbody>
+                                {item.table.rows.map((row, rowIndex) => (
+                                  <tr
+                                    key={rowIndex}
+                                    className="border-b border-gray-400"
+                                  >
+                                    {row.cells
+                                      .filter(
+                                        (cell) => cell.text.trim().length > 0
+                                      )
+                                      .map((cell, cellIndex) => {
+                                        const cellText = cell.text.trim();
+
+                                        // Determine if this is a header cell (larger font or bold)
+                                        const isHeader =
+                                          cell.fontSize > 12 ||
+                                          cell.fontName
+                                            .toLowerCase()
+                                            .includes("bold");
+                                        const CellTag = isHeader ? "th" : "td";
+
+                                        return (
+                                          <CellTag
+                                            key={cellIndex}
+                                            className={`px-4 py-3 border border-gray-400 text-left ${
+                                              isHeader
+                                                ? "bg-blue-50 font-semibold text-gray-900"
+                                                : "bg-white text-gray-800"
+                                            }`}
+                                          >
+                                            {cellText}
+                                          </CellTag>
+                                        );
+                                      })}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                            <button
+                              onClick={() =>
+                                item.table && setEditingTable(item.table)
+                              }
+                              className="mt-2 px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 text-sm"
+                            >
+                              ✏️ Edit Table Headers
+                            </button>
                           </div>
-                          {item.figure.altText && (
-                            <div className="bg-white p-3 rounded border border-blue-300 mb-2">
-                              <strong className="text-sm">Description:</strong>
-                              <p className="text-sm text-gray-800 mt-1">
-                                {item.figure.altText}
-                              </p>
+                        ) : item.type === "figure" && item.figure ? (
+                          <div className="my-6 border-2 border-blue-200 bg-blue-50 rounded-lg p-4">
+                            <div className="font-semibold text-lg text-blue-900 mb-2">
+                              {item.figure.label}
                             </div>
-                          )}
-                          <button
-                            onClick={() => setEditingFigure(item.figure!)}
-                            className="px-3 py-1 bg-purple-100 text-purple-700 rounded hover:bg-purple-200 text-sm"
-                          >
-                            ✏️ {item.figure.altText ? "Edit" : "Add"}{" "}
-                            Description
-                          </button>
-                        </div>
-                      );
-                    } else if (item.type === "equation" && item.equation) {
-                      // Render equation
-                      return (
-                        <MathReadout
-                          key={index}
-                          equation={item.equation}
-                          equationIndex={item.equationIndex || 0}
-                        />
-                      );
-                    } else if (item.type === "heading") {
-                      // Render appropriate heading based on level
-                      if (item.level === 1) {
-                        return (
-                          <h1
-                            key={index}
-                            className="text-3xl font-bold mt-0 mb-4 text-black"
-                          >
+                            <div className="text-sm text-gray-700 mb-2">
+                              {item.figure.caption}
+                            </div>
+                            {item.figure.altText && (
+                              <div className="bg-white p-3 rounded border border-blue-300 mb-2">
+                                <strong className="text-sm">
+                                  Description:
+                                </strong>
+                                <p className="text-sm text-gray-800 mt-1">
+                                  {item.figure.altText}
+                                </p>
+                              </div>
+                            )}
+                            <button
+                              onClick={() => setEditingFigure(item.figure!)}
+                              className="px-3 py-1 bg-purple-100 text-purple-700 rounded hover:bg-purple-200 text-sm"
+                            >
+                              ✏️ {item.figure.altText ? "Edit" : "Add"}{" "}
+                              Description
+                            </button>
+                          </div>
+                        ) : item.type === "equation" && item.equation ? (
+                          <MathReadout
+                            equation={item.equation}
+                            equationIndex={item.equationIndex || 0}
+                          />
+                        ) : item.type === "heading" ? (
+                          item.level === 1 ? (
+                            <h1 className="text-3xl font-bold mt-0 mb-4 text-black">
+                              {item.text}
+                            </h1>
+                          ) : item.level === 2 ? (
+                            <h2 className="text-2xl text-black font-semibold mt-6 mb-3">
+                              {item.text}
+                            </h2>
+                          ) : (
+                            <h3 className="text-xl text-black font-semibold mt-4 mb-2">
+                              {item.text}
+                            </h3>
+                          )
+                        ) : (
+                          <p className="mb-4 text-black leading-relaxed">
                             {item.text}
-                          </h1>
-                        );
-                      } else if (item.level === 2) {
-                        return (
-                          <h2
-                            key={index}
-                            className="text-2xl text-black font-semibold mt-6 mb-3"
-                          >
-                            {item.text}
-                          </h2>
-                        );
-                      } else {
-                        return (
-                          <h3
-                            key={index}
-                            className="text-xl text-black font-semibold mt-4 mb-2"
-                          >
-                            {item.text}
-                          </h3>
-                        );
-                      }
-                    } else {
-                      return (
-                        <p
-                          key={index}
-                          className="mb-4 text-black leading-relaxed"
-                        >
-                          {item.text}
-                        </p>
-                      );
-                    }
+                          </p>
+                        )}
+                      </div>
+                    );
                   })}
                 </div>
               ) : (
@@ -760,48 +810,6 @@ export default function ReaderPage() {
                   <p>No content available for this page</p>
                 </div>
               )}
-            </div>
-
-            {/* Page Navigation Footer */}
-            <div className="flex justify-between items-center mt-6 text-black">
-              <button
-                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                disabled={currentPage === 1}
-                className="px-4 py-2 bg-white border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 text-black"
-              >
-                ← Previous Page
-              </button>
-              <span className="text-sm text-black">
-                Page {currentPage} of {totalPages}
-              </span>
-              <button
-                onClick={() => {
-                  const input = prompt(
-                    `Enter a page number from 1 to ${totalPages}.`
-                  );
-                  if (input) {
-                    const page_num = parseInt(input, 10);
-                    if (
-                      !isNaN(page_num) &&
-                      page_num >= 1 &&
-                      page_num <= totalPages
-                    )
-                      setCurrentPage(page_num);
-                    else alert("Invalid page number.");
-                  }
-                }}
-              >
-                Enter Page Number
-              </button>
-              <button
-                onClick={() =>
-                  setCurrentPage(Math.min(totalPages, currentPage + 1))
-                }
-                disabled={currentPage === totalPages}
-                className="px-4 py-2 bg-white border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 text-black"
-              >
-                Next Page →
-              </button>
             </div>
           </article>
 
@@ -811,7 +819,7 @@ export default function ReaderPage() {
               <div className="sticky top-24">
                 <GroundedQA
                   documentData={documentData}
-                  onNavigateToPage={(page) => setCurrentPage(page)}
+                  onNavigateToPage={scrollToPage}
                 />
               </div>
             </aside>
